@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>카카오톡 공유</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffe812;
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 32px 32px;
+            margin: 24px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            max-width: 360px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto 16px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 0 0 6px;
+        }
+
+        p {
+            font-size: 13px;
+            color: #666;
+            margin: 0 0 18px;
+        }
+
+        #kakaotalk-share-btn {
+            width: 100%;
+            padding: 14px 0;
+            border: none;
+            border-radius: 10px;
+            background: #fee500;
+            color: #191919;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        #shareStatus {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #888;
+            min-height: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <img src="image.jpg" alt="이미지">
+        <h1>아래 버튼을 눌러 카카오톡으로 공유하세요</h1>
+        <p>보내고 싶은 채팅방을 선택하면 이미지가 전송됩니다.</p>
+        <button id="kakaotalk-share-btn">📤 카카오톡 공유하기</button>
+        <div id="shareStatus"></div>
+    </div>
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+        Kakao.init('c551a221dbd2c1628f0424d2e5e5e0a8');
+
+        var statusEl = document.getElementById('shareStatus');
+
+        if (!Kakao.isInitialized()) {
+            statusEl.textContent = 'Kakao SDK 초기화 실패 (JS 키를 확인하세요)';
+        }
+
+        Kakao.Share.createDefaultButton({
+            container: '#kakaotalk-share-btn',
+            objectType: 'feed',
+            content: {
+                title: ' ',
+                description: '',
+                imageUrl: 'https://psb0118.github.io/kakao-image-link/image.jpg',
+                link: {
+                    webUrl: 'https://psb0118.github.io/kakao-image-link/',
+                    mobileWebUrl: 'https://psb0118.github.io/kakao-image-link/'
+                }
+            },
+            installTalk: true
+        });
+    </script>
+
+</body>
+</html>

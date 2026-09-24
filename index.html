@@ -1,25 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>이미지</title>
+    <meta charset="UTF-8">
 
-<meta property="og:title" content="이미지">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://psb0118.github.io/kakao-image-link//image.jpg">
-<meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-html,body{margin:0;padding:0;background:#fff}
-img{display:block;width:100%;height:auto}
-</style>
+    <title>이미지</title>
+
+    <!-- 카카오톡 링크 미리보기 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="이미지">
+    <meta property="og:description" content="이미지를 눌러 이동하세요.">
+    <meta property="og:image" content="https://psb0118.github.io/kakao-image-link/image.jpg">
+    <meta property="og:url" content="https://psb0118.github.io/kakao-image-link/">
+
+    <!-- 자동 이동 -->
+    <meta http-equiv="refresh" content="0; url=https://open.kakao.com/o/gFPoH3ji">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            background: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .image {
+            display: block;
+            width: min(100%, 600px);
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .text {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 22px;
+            border-radius: 10px;
+            background: #fee500;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
-<a href="https://open.kakao.com/o/gFPoH3ji">
-  <img src="image.jpg" alt="이미지">
-</a>
+    <div class="container">
+
+        <img
+            class="image"
+            src="image.jpg"
+            alt="이미지"
+        >
+
+        <div class="text">
+            잠시 후 이동합니다.
+        </div>
+
+        <a
+            class="button"
+            href="https://open.kakao.com/o/gFPoH3ji"
+        >
+            바로 이동
+        </a>
+
+    </div>
+
+    <script>
+        window.location.replace(
+            "https://open.kakao.com/o/gFPoH3ji"
+        );
+    </script>
 
 </body>
 </html>
